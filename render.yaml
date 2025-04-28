@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: worker
     name: o-engracadao
     env: node
     plan: free

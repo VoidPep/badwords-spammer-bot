@@ -12,4 +12,4 @@ client.once('ready', async () => {
 });
 
 console.log(process.env.BOT_KEY)
-client.login(process.env.BOT_KEY);
+client.login(`${process.env.BOT_KEY}`);

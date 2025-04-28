@@ -9,26 +9,30 @@ export abstract class EventHandler {
   static OnStart(client: Client<boolean>) {
     console.log(`Logged in as ${client.user?.tag}!`);
 
-    const TARGET_CHANNEL_ID = process.env.TARGET_CHANNEL_ID as string;
-    const TARGET_USER_ID = process.env.TARGET_USER_ID as string;
+    const TARGET_CHANNEL_ID = `${process.env.TARGET_CHANNEL_ID}`;
+    const TARGET_USER_ID = `${process.env.TARGET_USER_ID}`;
 
-    const CRON_SCHEDULE = process.env.CRON_SCHEDULE ?? "*/1 * * * *";
+    const CRON_SCHEDULE =  process.env.CRON_SCHEDULE ? `${process.env.CRON_SCHEDULE}` : "*/1 * * * *";
 
     cron.schedule(CRON_SCHEDULE, async () => {
-      try {
-        const channel = await client.channels.fetch(TARGET_CHANNEL_ID);
-
-        if (channel?.isTextBased()) {
-          const userMention = `<@${TARGET_USER_ID}>`;
-          await (channel as TextChannel).send(
-            `${userMention} você é ${this.getRandomMessage()}! `
-          );
-        }
-      } catch (error) {
-        console.error("Erro ao enviar mensagem:", error);
-      }
+      await EventHandler.xingar(client, TARGET_CHANNEL_ID, TARGET_USER_ID);
     });
   }
+
+    private static async xingar(client: Client<boolean>, TARGET_CHANNEL_ID: string, TARGET_USER_ID: string) {
+        try {
+            const channel = await client.channels.fetch(TARGET_CHANNEL_ID);
+
+            if (channel?.isTextBased()) {
+                const userMention = `<@${TARGET_USER_ID}>`;
+                await (channel as TextChannel).send(
+                    `${userMention} você é ${this.getRandomMessage()}! `
+                );
+            }
+        } catch (error) {
+            console.error("Erro ao enviar mensagem:", error);
+        }
+    }
 
   static getRandomMessage(): string {
     const xingamentos = JSON.parse(

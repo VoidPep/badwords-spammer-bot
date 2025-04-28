@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: o-engracadao
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npx ts-node src/index.ts
+    envVars:
+      - key: BOT_KEY
+        sync: false
+      - key: TARGET_CHANNEL_ID
+        sync: false
+      - key: TARGET_USER_ID
+        sync: false
+      - key: CRON_SCHEDULE
+        sync: false

@@ -1,10 +1,10 @@
 services:
-  - type: worker
+  - type: web
     name: o-engracadao
     env: node
     plan: free
-    buildCommand: npm install
-    startCommand: npx ts-node src/index.ts
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
     envVars:
       - key: BOT_KEY
         sync: false

@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "build": "npx tsc",
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/express": "^5.0.1",
     "discord.js": "^14.19.2",
     "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "node-cron": "^3.0.3"
   },
   "devDependencies": {

@@ -1,3 +1,6 @@
+Eu fiz esse bot exclusivamente para xingar minha amiga Laly todo santo dia às exatas 18:00 
+Pode contribuir com mais xingamentos para eu adicionar no json
+
 Exemplo de .env para colocar na raíz do projeto
 
 ```env

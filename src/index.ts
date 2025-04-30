@@ -10,6 +10,13 @@ const client = new Client({
 
 client.once('ready', async () => {
   EventHandler.OnStart(client);
+
+  setInterval(() => {
+    fetch(`${process.env.RENDER_URL}`)
+      .then(() => {
+        console.log("Ping para manter o render vivo");
+      });
+  }, 1000 * 60 * 10);
 });
 
 console.log(process.env.BOT_KEY)

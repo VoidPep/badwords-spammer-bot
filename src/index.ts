@@ -11,12 +11,14 @@ const client = new Client({
 client.once('ready', async () => {
   EventHandler.OnStart(client);
 
+  var url = `${process.env.RENDER_URL}`;
   setInterval(() => {
-    fetch(`${process.env.RENDER_URL}`)
+    console.log("🔁 Enviando ping para o Render na rota: " + url);
+    fetch(url)
       .then(() => {
         console.log("Ping para manter o render vivo");
-      });
-  }, 1000 * 60 * 10);
+      }).catch((err) => console.error("❌ Falha ao enviar ping:", err));
+  }, 1000 * 60 * 5);
 });
 
 console.log(process.env.BOT_KEY)

@@ -26,7 +26,7 @@ export abstract class EventHandler {
             if (channel?.isTextBased()) {
                 const userMention = `<@${TARGET_USER_ID}>`;
                 await (channel as TextChannel).send(
-                    `${userMention} você é ${this.getRandomMessage()}! `
+                    `${userMention}, ${this.getRandomMessage()}! `
                 );
             }
         } catch (error) {

@@ -1,7 +1,6 @@
-Eu fiz esse bot exclusivamente para xingar minha amiga Laly todo santo dia às exatas 18:00, pode contribuir com mais xingamentos para eu adicionar no json
-
+I made this bot exclusevely to spam everyday my friend, if you want you can contribute with another bad words in json
 ---
-Se caso quiser fazer essa graça com seus amigos ta ae um exemplo de .env para colocar na raíz do projeto
+If you want to just troll your friend with this, go ahead and get this examples of .env file to put on root folder of the project
 
 ```env
 BOT_KEY=chave-do-bot
